@@ -11,11 +11,13 @@
   <%# <% if Enrollment.exists?(user_id: current_user.id, event_id: e.id) %>
   <%= link_to "Don't Attend", enrollment_path(e), data: { turbo_method: :delete } %>
   <%# <% end %>
+
+<% end%>
   <% if e.creator.id == current_user.id %>
   <%= link_to "Edit this event", edit_event_path(@event) %> 
   <%= button_to "Destroy this event", @event, method: :delete %>
 
   <% end %>
-<% end%>
   <%= link_to "Back to events", events_path %>
+
 </div>
