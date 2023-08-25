@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @event %>
-
+<% e = @event%>
 <div>
 <% if user_signed_in? %>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Attend Event", new_enrollment_path(:event_id => e.id) %>
+  <%= link_to "Edit this event", edit_event_path(@event) %> 
 <% end%>
   <%= link_to "Back to events", events_path %>
 <% if user_signed_in? %>
