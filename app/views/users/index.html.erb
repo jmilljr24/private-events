@@ -1,7 +1,8 @@
 <h1>Your Created Events</h1>
 
 <div id="events">
-  <% user.events.each do |event| %>
+  <% @events = current_user.events %>
+  <% @events.each do |event| %>
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
