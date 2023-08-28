@@ -20,3 +20,12 @@
   </p>
 
 </div>
+
+<div>
+  <p>
+    <strong>Attendees:</strong>
+  <% event.attendees.each do |attendee| %>
+    <p><%= attendee.email %></p>
+  <% end %>
+  </p>
+</div>
