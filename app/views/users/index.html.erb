@@ -11,13 +11,21 @@
 </div>
 
 <h2>Events you are attending</h2>
-
+<h3>Upcoming Events</h3>
 <div id="attending">
-  <% enrollments = current_user.attended_events %>
+  <% enrollments = current_user.attended_events.where('date >= ?', Date.today) %>
   <% enrollments.each do |enrollment| %>
-    <p><%= enrollment.title %> </p>
+
+  <p><%= enrollment.title %></p>
   <% end %>
 </div>
+
+<h3>Past Events</h3>
+  <% enrollments = current_user.attended_events.where('date < ?', Date.today) %>
+  <% enrollments.each do |enrollment| %>
+  <p><%= enrollment.title %> </p>
+  <% end %>
+
 <div id="home">
   <%= link_to "HOME", root_path %>
 </div>
