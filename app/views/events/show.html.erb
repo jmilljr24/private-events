@@ -3,7 +3,7 @@
 <%= render @event %>
 <% e = @event%>
 <div>
-  <% if !Enrollment.exists?(user_id: current_user.id, event_id: e.id) %>
+  <% if user_signed_in? && !Enrollment.exists?(user_id: current_user.id, event_id: e.id) %>
     <%= link_to "Attend Event", new_enrollment_path(:event_id => e.id) %>
   <% end %>
 <% if user_signed_in? && Enrollment.exists?(user_id: current_user.id, event_id: e.id) %>
@@ -13,7 +13,7 @@
   <%# <% end %>
 
 <% end%>
-  <% if e.creator.id == current_user.id %>
+  <% if user_signed_in? && e.creator.id == current_user.id %>
   <%= link_to "Edit this event", edit_event_path(@event) %> 
   <%= button_to "Destroy this event", @event, method: :delete %>
 
