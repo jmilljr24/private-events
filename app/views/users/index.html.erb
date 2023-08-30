@@ -17,6 +17,9 @@
   <% enrollments.each do |enrollment| %>
 
   <p><%= enrollment.title %></p>
+      <p>
+      <%= link_to "Show this event", enrollment %>
+    </p>
   <% end %>
 </div>
 
@@ -24,8 +27,7 @@
   <% enrollments = current_user.attended_events.where('date < ?', Date.today) %>
   <% enrollments.each do |enrollment| %>
   <p><%= enrollment.title %> </p>
+      <p>
+      <%= link_to "Show this event", enrollment %>
+    </p>
   <% end %>
-
-<div id="home">
-  <%= link_to "HOME", root_path %>
-</div>
